@@ -11,22 +11,26 @@ def hello():
             host='127.0.0.1',
             user='test',
             password='',
-            db='test1',
+            db='mask',
             charset='utf8',
             cursorclass=pymysql.cursors.DictCursor,
         )
 
     cur = db.cursor()
-    sql = "SELECT * FROM `2`"
+    cur1 = db.cursor()
+    sql = "SELECT * FROM `mask`"
     cur.execute(sql)
     members = cur.fetchall()
+    sql1 = "SELECT * FROM `mask` WHERE 1 ORDER BY day LIMIT 0, 1"
+    cur.execute(sql1)
+    members1 = cur.fetchall()
+    print(members1)
+
 
     cur.close()
     db.close()
 
-    #return name
     return render_template('hello.html', title='flask test', members=members) #変更
 
-## おまじない
 if __name__ == "__main__":
     app.run(debug=True)

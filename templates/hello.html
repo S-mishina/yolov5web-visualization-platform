@@ -1,9 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
 <h3>一覧</h3>
+<h2>最新のデータ</h2>
 <ul>
 {% for member in members %}
-    <li>{{ member.name}} : {{ member.email }}</li>
+    <li>{{ member.day}} : {{ member.time }}: {{ member.test}}</li>
 {% endfor %}
 </ul>
+<h2>最新のデータ</h2>
+{% for member in range(2) %}
+{% endfor %}
 {% endblock %}
