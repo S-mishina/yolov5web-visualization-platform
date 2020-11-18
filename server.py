@@ -2,6 +2,8 @@ from flask import Flask, render_template #追加
 import pymysql #追加
 import time
 import datetime
+from flask import render_template, url_for
+from flask import request
 
 app = Flask(__name__)
 
