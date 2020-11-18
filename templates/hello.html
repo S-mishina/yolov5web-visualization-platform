@@ -2,9 +2,10 @@
 {% block content %}
 <h1>yolov5web-visualization-platform</h1>
 <h2>グラフの表示</h2>
-<br>
-<br>
-<br>
+{% for member4 in members4 %}
+<li>{{ member4.COUNT(test)}}</li>
+{% for member5 in members5 %}
+<li>{{ member5.COUNT(test)}}</li>
 <h2>最新5件の結果</h2>
 <center>
 <ul>
