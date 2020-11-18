@@ -3,14 +3,16 @@
 <h1>yolov5web-visualization-platform</h1>
 <h2>グラフの表示</h2>
 {% for member4 in members4 %}
-<li>{{ member4.COUNT(test)}}</li>
+    <li>{{ member4.day}} : {{ member4.count1 }}</li>
+{% endfor %}
 {% for member5 in members5 %}
-<li>{{ member5.COUNT(test)}}</li>
+    <li>{{ member5.day}} : {{ member5.count1 }}</li>
+{% endfor %}
 <h2>最新5件の結果</h2>
 <center>
 <ul>
 {% for member1 in members1 %}
-    <li>{{ member1.day}} : {{ member1.time }}: {{ member1.test}}</li>
+    <li>{{ member1.day}} : {{ member1.time }}: {{ member1.okorng}}</li>
 {% endfor %}
 </ul>
 </center>
@@ -18,7 +20,7 @@
 <center>
     <ul>
     {% for member2 in members2 %}
-        <li>{{ member2.day}} : {{ member2.time }}: {{ member2.test}}</li>
+        <li>{{ member2.day}} : {{ member2.time }}: {{ member2.okorng}}</li>
     {% endfor %}
     </ul>
     </center>
@@ -26,7 +28,7 @@
 <center>
     <ul>
     {% for member3 in members3 %}
-        <li>{{ member3.day}} : {{ member3.time }}: {{ member3.test}}</li>
+        <li>{{ member3.day}} : {{ member3.time }}: {{ member3.okorng}}</li>
     {% endfor %}
     </ul>
     </center>
