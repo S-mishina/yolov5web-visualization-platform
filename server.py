@@ -58,18 +58,29 @@ def hello():
     print("4")
     print(members3)
     print("5")
-    print(members4)
+    if str(members4) == '()':
+        members4="null"
+    else:
+        print(str(members4))
     print("配列")
     day="day"
     count1="count1"
-    for member4 in members4:
-        print(str(member4[day])+":マスクをしている人数"+str(member4[count1])+"人")
-        members7=str(member4[count1])
+    if members4=='null':
+        print("0")
+        members7="null"
+    else:
+            for member4 in members4:
+             print(str(member4[day])+":マスクをしている人数"+str(member4[count1])+"人")
+             members7=str(member4[count1])
     print("6")
-    print(members5)
-    for member5 in members5:
-        print(str(member5[day])+":マスクをしていない人数"+str(member5[count1])+"人")
-        members8=str(member5[count1])
+    if str(members5)=='()':
+        members5="null"
+        print("0")
+        members8="null"
+    else:
+            for member5 in members5:
+             print(str(member5[day])+":マスクをしていない人数"+str(member5[count1])+"人")
+             members8=str(member5[count1])
     cur.close()
     cur1.close()
     cur2.close()
