@@ -2,12 +2,40 @@
 {% block content %}
 <h1>yolov5web-visualization-platform</h1>
 <h2>グラフの表示</h2>
-{% for member4 in members4 %}
-    <li>{{ member4.day}} : {{ member4.count1 }}</li>
-{% endfor %}
-{% for member5 in members5 %}
-    <li>{{ member5.day}} : {{ member5.count1 }}</li>
-{% endfor %}
+<h3>一日のマスク着用比率</h3>
+<canvas id="graph-area" height="250" width="250"></canvas>
+<script type="text/javascript">
+var okmask = "{% for member4 in members4%}{{ member4.count1}}{% endfor %}";
+var nomask = "{% for member5 in members5%}{{ member5.count1}}{% endfor %}";
+    // ▼グラフの中身
+    var pieData = [
+       {
+          value: okmask,            // 値
+          color:"#F7464A",       // 色
+          highlight: "#FF5A5E",  // マウスが載った際の色
+          label: "マスクをしている人"        // ラベル
+       },
+       {
+          value: nomask,
+          color: "#41C44E",
+          highlight: "#6CD173",
+          label: "マスクをしてない人"
+       }, 
+    ];
+ 
+    // ▼上記のグラフを描画するための記述
+    window.onload = function(){
+       var ctx = document.getElementById("graph-area").getContext("2d");
+       window.myPie = new Chart(ctx).Pie(pieData);
+    };
+ 
+ </script>
+<br>
+<br>
+    <p>マスクをしている人数{% for member7 in members7 %}{{ member7}}{% endfor %}</p> 
+    <p>マスクをしていない人数{% for member8 in members8 %}{{member8 }}{% endfor %}</p>
+<script>
+</script>
 <h2>最新5件の結果</h2>
 <center>
 <ul>
@@ -31,5 +59,6 @@
         <li>{{ member3.day}} : {{ member3.time }}: {{ member3.okorng}}</li>
     {% endfor %}
     </ul>
-    </center>
+</center>
+
 {% endblock %}

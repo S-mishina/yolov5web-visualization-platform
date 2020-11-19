@@ -4,6 +4,8 @@ import time
 import datetime
 from flask import render_template, url_for
 from flask import request
+import numpy 
+import json
 
 app = Flask(__name__)
 
@@ -57,7 +59,17 @@ def hello():
     print(members3)
     print("5")
     print(members4)
+    print("配列")
+    day="day"
+    count1="count1"
+    for member4 in members4:
+        print(str(member4[day])+":マスクをしている人数"+str(member4[count1])+"人")
+        members7=str(member4[count1])
+    print("6")
     print(members5)
+    for member5 in members5:
+        print(str(member5[day])+":マスクをしていない人数"+str(member5[count1])+"人")
+        members8=str(member5[count1])
     cur.close()
     cur1.close()
     cur2.close()
@@ -66,6 +78,6 @@ def hello():
     cur5.close()
     db.close()
 
-    return render_template('hello.html', title='flask test', members=members, members1=members1, members2=members2, members3=members3,members4=members4, members5=members5) #変更
+    return render_template('hello.html', title='flask test', members=members, members1=members1, members2=members2, members3=members3,members4=members4, members5=members5,members7=json.dumps(members7),members8=json.dumps(members8)) #変更
 
 app.run(debug=True)
