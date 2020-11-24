@@ -91,4 +91,4 @@ def hello():
 
     return render_template('hello.html', title='flask test', members=members, members1=members1, members2=members2, members3=members3,members4=members4, members5=members5,members7=json.dumps(members7),members8=json.dumps(members8)) #変更
 
-app.run(debug=True)
+app.run(port="80")
